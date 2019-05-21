@@ -1,0 +1,24 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+before_script:
+  # - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  - docker login -u "$DOCKER_HUB_USER" -p "$DOCKER_HUB_PASS"
+
+build_for_latest:
+  stage: build
+  script:
+    - docker build --pull -t "$CI_PROJECT_NAME:latest" .
+    - docker push "$CI_PROJECT_NAME:latest"
+  only:
+    - master
+
+build_for_tags:
+  stage: build
+  script:
+    - docker build --pull -t "$CI_PROJECT_NAME:$CI_COMMIT_TAG" .
+    - docker push "$CI_PROJECT_NAME:$CI_COMMIT_TAG"
+  only:
+    - tags
