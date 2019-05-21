@@ -12,8 +12,8 @@ build_for_latest:
   # variables:
   #   NETLIFY_COMMONS_ACCESS_TOKEN: $NETLIFY_COMMONS_ACCESS_TOKEN
   script:
-    - docker build --pull -t "$CI_PROJECT_NAME:latest" .
-    - docker push "$CI_PROJECT_NAME:latest"
+    - docker build --pull -t $DOCKER_HUB_USER/"$CI_PROJECT_NAME:latest" .
+    - docker push $DOCKER_HUB_USER/"$CI_PROJECT_NAME:latest"
   only:
     - master
 
