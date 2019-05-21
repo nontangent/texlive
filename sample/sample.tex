@@ -1,0 +1,39 @@
+\documentclass[twocolumn, a4j]{article}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+% \usepackage[dvipdfmx]{graphicx}
+
+\title{サンプル用のTexファイル}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\author{Nozomu Miyamoto\footnotemark[2]　nontan@sfc.wide.ad.jp}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\date{\today}
+
+\begin{document}
+
+\twocolumn[
+\begin{@twocolumnfalse}
+  \maketitle
+  \vspace{-6mm}
+  \begin{abstract}
+    ここに概要を書きましょう．
+  \end{abstract}
+  \vspace{2mm}
+\end{@twocolumnfalse}
+]
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\footnotetext[2]{慶應義塾環境情報学部 NECO Lab.}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+\section{はじめに}
+
+  　hoge hoge hoge hoge
+
+\renewcommand{\refname}{参考文献}
+\begin{thebibliography}{数字}
+  \bibitem[Shigeo 2000]{Shigeo 2000} Shigeo Mastubara and Makoto Yoko, Fraud-Free Exchange Mechanisms in Electronic Commerce, Journal of Japanese Society for Artificial Intelligence(2000).
+\end{thebibliography}
+
+\end{document}
