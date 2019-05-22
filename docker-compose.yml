@@ -1,16 +1,19 @@
 version: "3.1"
-servicess:
+services:
   texlive:
-    build: .
+    # build: .
     # image: nontan18/texlive
+    image: texlive
     volumes:
       - ./sample:/root/work
     command: latexmk --pvc /root/work/sample.tex
 
-  # nginx:
-  #   image: nontan18/stablefilehost
-  #   ports:
-  #     # "ホストのポート:コンテナのポート"
-  #     - "80:80"
-  #   volumes:
-  #     - ./sample/sample.pdf:/root/public
+  nginx:
+    # /root/public以下のファイルをホスティングするnginxベースのイメージ
+    image: nontan18/stable-file-host
+    ports:
+      # "ホストのポート:コンテナのポート"
+      - "8080:80"
+    volumes:
+      # 生成されるsample.pdfを公開ディレクトリにマウント
+      - ./sample/sample.pdf:/root/public/sample.pdf
