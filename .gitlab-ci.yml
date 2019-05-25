@@ -4,7 +4,7 @@ services:
   - docker:dind
 
 before_script:
-  - docker info 1>/dev/null 2>/dev/null || export DOCKER_HOST="tcp://localhost:2376"
+  - docker info 1>/dev/null 2>/dev/null || export DOCKER_HOST="tcp://localhost:2375"
   # - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
 
