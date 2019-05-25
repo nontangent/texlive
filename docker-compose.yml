@@ -2,7 +2,7 @@ version: "3.1"
 services:
   texlive:
     build: .
-    # image: nontan18/texlive
+    # image: nontan18/texlive:stable
     volumes:
       - ./sample:/root/work
     command: latexmk --pvc /root/work/sample.tex
